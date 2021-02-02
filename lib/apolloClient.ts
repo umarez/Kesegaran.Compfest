@@ -34,10 +34,10 @@ const createWSLink = () => {
 
 let initialToken: string
 
-const getAuthLink = (token: string) => {
+const getAuthLink = (initialToken: string) => {
   return setContext((_, { headers }) => {
     // get the authentication token from local storage if it exists
-    const token = nookies.get(null)?.token || initialToken
+    const token = initialToken || nookies.get(null)?.token
     // return the headers to the context so httpLink can read them
     return {
       headers: {
