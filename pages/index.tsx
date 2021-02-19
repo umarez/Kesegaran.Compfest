@@ -11,8 +11,8 @@ export default function Home() {
       </Head>
 
       <main>
-        <div>
-          <LoginForm />
+        <div tw="w-screen h-screen flex justify-center items-center">
+          <h1 tw="uppercase font-bold text-xl">halo ini boilerplate</h1>
         </div>
       </main>
     </div>
