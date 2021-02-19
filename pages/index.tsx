@@ -1,6 +1,8 @@
 import Head from "next/head"
 import tw from "twin.macro"
-import LoginForm from "../components/LoginForm"
+import { useMemesQuery } from "../generated/graphql"
+import Image from "next/image"
+import { Memes } from "../components/Memes"
 
 export default function Home() {
   return (
@@ -11,9 +13,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <div tw="w-screen h-screen flex justify-center items-center">
-          <h1 tw="uppercase font-bold text-xl">halo ini boilerplate</h1>
-        </div>
+        <Memes />
       </main>
     </div>
   )
