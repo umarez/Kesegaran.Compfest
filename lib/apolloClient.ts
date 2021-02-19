@@ -43,6 +43,7 @@ const getAuthLink = (initialToken: string) => {
       headers: {
         ...headers,
         authorization: token ? `Bearer ${token}` : "",
+        "x-hasura-admin-secret": "compfest13",
       },
     }
   })

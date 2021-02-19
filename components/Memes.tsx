@@ -5,18 +5,19 @@ interface MemesProps {}
 
 export const Memes: React.FC<MemesProps> = ({}) => {
   const { data, loading: memesLoading } = useMemesQuery()
-  console.log(data)
   return (
-    <div tw="w-screen h-screen flex justify-center items-center">
-      <h1 tw="uppercase font-bold text-xl">halo ini boilerplate</h1>
-      {memesLoading
-        ? "loading.."
-        : data?.memes.map(meme => (
-            <div>
-              <h1>{meme.title}</h1>
-              {/* <Image src={meme.image_url} /> */}
-            </div>
-          ))}
+    <div tw="w-screen h-screen flex justify-center items-center flex-wrap">
+      <h1 tw="uppercase font-bold text-5xl">halo ini boilerplate</h1>
+      <div tw="flex justify-center items-center flex-wrap">
+        {memesLoading
+          ? "loading.."
+          : data?.memes.map(meme => (
+              <div>
+                <h1 tw="uppercase font-bold text-base">{meme.title}</h1>
+                <img tw="w-40" src={meme.image_url} />
+              </div>
+            ))}
+      </div>
     </div>
   )
 }
