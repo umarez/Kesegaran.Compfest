@@ -1,6 +1,8 @@
 ## Compfest Software Engineering Task
 
-This is a boilerplate which includes:
+### Getting Started
+
+This boilerplate includes:
 
 - `/graphql/` - this folder is to define your Queries/Mutations (pro tip: copy the Query/Mutation from your `GraphiQL` to avoid errors)
 - `npm run gen` or `yarn gen` to generate the types from the Query/Mutation (or you can just use `npm dev` or `yarn dev` as it also runs this command first)
@@ -17,7 +19,15 @@ npm run dev
 yarn dev
 ```
 
-need help? contact us through line id: <br>
+### Figma Link
+
+https://www.figma.com/file/ktcQtnVkoxhcQehRgM8b6i/Tugas-Oprec?node-id=1%3A568
+
+### Boilerplate UI
+
+![mEmEs](./static/index.png)
+
+want to ask? contact us through line id: <br>
 jojonicholas
 or
 marockat
