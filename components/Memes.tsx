@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useMemesQuery } from "../generated/graphql"
 import tw from "twin.macro"
+
 interface MemesProps {}
 
 export const Memes: React.FC<MemesProps> = ({}) => {
@@ -19,15 +20,6 @@ export const Memes: React.FC<MemesProps> = ({}) => {
 
   return (
     <>
-      <div tw="fixed flex justify-between shadow-md w-screen h-16 text-xl font-poppins font-medium">
-          <div tw="w-3/6 flex justify-center items-center ">
-            <h1 tw="mr-28 cursor-default">Memepedia</h1>
-          </div>
-          <div tw="w-5/12 flex justify-evenly items-center ">
-            <span tw="cursor-pointer hover:text-blue-300">Explore</span>
-            <span tw="cursor-pointer hover:text-blue-300">Saved</span>
-          </div>
-      </div>
       <div tw="w-screen h-screen flex justify-center items-center flex-wrap">
         <div tw="flex justify-center items-center flex-wrap"></div>
       </div>
