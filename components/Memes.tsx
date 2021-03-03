@@ -1,23 +1,47 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useMemesQuery } from "../generated/graphql"
 import tw from "twin.macro"
 interface MemesProps {}
 
 export const Memes: React.FC<MemesProps> = ({}) => {
   const { data, loading: memesLoading } = useMemesQuery()
+  const memeData = []
+  useEffect(() => {
+    data?.memes.map(meme => {
+      memeData.push({
+        title: meme.title,
+        url: meme.image_url,
+        description: meme.description,
+      })
+    })
+    console.log(memeData)
+  }, [data])
+
   return (
-    <div tw="w-screen h-screen flex justify-center items-center flex-wrap">
-      <h1 tw="uppercase font-bold text-5xl">halo ini boilerplate</h1>
-      <div tw="flex justify-center items-center flex-wrap">
-        {memesLoading
+    <>
+      <div tw="fixed flex justify-between shadow-md w-screen h-16 text-xl font-poppins font-medium">
+          <div tw="w-3/6 flex justify-center items-center ">
+            <h1 tw="mr-28 cursor-default">Memepedia</h1>
+          </div>
+          <div tw="w-5/12 flex justify-evenly items-center ">
+            <span tw="cursor-pointer hover:text-blue-300">Explore</span>
+            <span tw="cursor-pointer hover:text-blue-300">Saved</span>
+          </div>
+      </div>
+      <div tw="w-screen h-screen flex justify-center items-center flex-wrap">
+        <div tw="flex justify-center items-center flex-wrap"></div>
+      </div>
+    </>
+  )
+}
+
+{
+  /* {memesLoading
           ? "loading.."
           : data?.memes.map(meme => (
               <div>
                 <h1 tw="uppercase font-bold text-base">{meme.title}</h1>
                 <img tw="w-40" src={meme.image_url} />
               </div>
-            ))}
-      </div>
-    </div>
-  )
+            ))} */
 }
