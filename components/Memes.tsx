@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useMemesQuery } from "../generated/graphql"
 import tw from "twin.macro"
-import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
+import Masonry from "react-responsive-masonry"
 
 interface MemesProps {}
 
@@ -21,9 +21,8 @@ export const Memes: React.FC<MemesProps> = ({}) => {
 
   return (
     <>
-      <div tw="w-screen min-h-screen flex justify-center items-center flex-wrap z-10 mt-28 mb-36 p-20">
+      <div tw="w-screen min-h-screen flex justify-center items-center flex-wrap z-10 mt-28 mb-36 md:p-20">
         <div tw="flex items-center flex-wrap w-4/5">
-          {/* <div tw="grid grid-cols-4 gap-4"> */}
           <Masonry columnsCount={3} gutter="50px">
             {memesLoading
               ? "loading.."
@@ -33,7 +32,6 @@ export const Memes: React.FC<MemesProps> = ({}) => {
                     tw="rounded-xl relative"
                     css={{ height: "fit-content" }}
                   >
-                    {/* <h1 tw="uppercase font-bold text-base">{meme.title}</h1> */}
                     <div tw="absolute bottom-0 h-10 bg-red-600 w-full rounded-md text-red-700 invisible group-hover:visible">
                       <h1 tw="text-white text-xl">{meme.description}</h1>
                     </div>
@@ -41,7 +39,7 @@ export const Memes: React.FC<MemesProps> = ({}) => {
                   </div>
                 ))}
           </Masonry>
-          {/* </div> */}
+
         </div>
       </div>
     </>
