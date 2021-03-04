@@ -7,7 +7,7 @@ import { IconContext } from "react-icons";
 export const Footer: React.FC = () => {
   return (
     <>
-      <div tw="fixed flex justify-evenly items-center left-0 bottom-0 w-screen bg-gray-100 h-24">
+      <div tw="fixed flex justify-evenly items-center left-0 bottom-0 w-screen bg-gray-100 h-24 z-10">
         <div>
           <h1 tw="cursor-default text-2xl flex items-center">
             <span tw="mr-2">

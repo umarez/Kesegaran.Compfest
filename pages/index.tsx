@@ -4,6 +4,7 @@ import { Footer } from "../components/Footer"
 import { Memes } from "../components/Memes"
 import { Navbar } from "../components/Navbar"
 
+
 export default function Home() {
   return (
     <div>
@@ -16,9 +17,9 @@ export default function Home() {
         <title>Memepedia</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main tw="overflow-hidden">
         <Navbar />
-        <Memes />
+          <Memes />
         <Footer />
       </main>
     </div>
