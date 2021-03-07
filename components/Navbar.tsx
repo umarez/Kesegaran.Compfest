@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import { RiFileSearchFill, RiSave3Fill } from "react-icons/ri"
-import { FaRegLaughSquint } from "react-icons/fa"
+import { FaBeer } from "react-icons/fa"
 import Link from "next/link"
 import "twin.macro"
 
@@ -30,11 +30,11 @@ export const Navbar: React.FC<props> = ({ color }) => {
         tw="fixed block flex justify-evenly top-0 left-0 shadow-md w-screen h-16 text-lg font-poppins  z-10 bg-white "
       >
         <div tw="w-3/6 flex justify-center items-center ">
-          <h1 tw="mr-28 cursor-default text-2xl flex items-center">
+          <h1 tw="mr-64 cursor-default text-xl flex items-center">
             <span tw="mr-2">
-              <FaRegLaughSquint />
+              <FaBeer />
             </span>
-            Memepedia
+            KESEGARAN.COMPFEST
           </h1>
         </div>
         <div tw="w-5/12 flex justify-evenly items-center px-28 ">

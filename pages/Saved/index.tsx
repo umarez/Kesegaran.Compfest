@@ -55,7 +55,7 @@ const Saved: React.FC = () => {
                 </div>
               ) : (
                 apakek !== null && (
-                  <div tw="w-full flex justify-center">
+                  <div tw="w-full flex justify-center mb-10">
                     <MemeRender Data={apakek} />
                   </div>
                 )
