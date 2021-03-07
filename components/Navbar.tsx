@@ -4,23 +4,30 @@ import { FaRegLaughSquint } from "react-icons/fa"
 import Link from "next/link"
 import "twin.macro"
 
-export const Navbar: React.FC = () => {
-    // let prevScroll = window.pageYOffset
-    // window.onscroll = () => {
-    //   let currentScroll = window.pageYOffset
-    //   if (prevScroll > currentScroll) {
-    //     document.getElementById("nav").style.top = "0"
-    //   } else {
-    //     document.getElementById("nav").style.top = "-50px"
-    //   }
-    //   prevScroll = currentScroll
-    // }
+interface props {
+  color: boolean
+}
+
+export const Navbar: React.FC<props> = ({ color }) => {
+  if (typeof window !== "undefined") {
+    let prevScroll = window.pageYOffset
+    window.onscroll = () => {
+      let currentScroll = window.pageYOffset
+      if (prevScroll > currentScroll) {
+        document.getElementById("nav").style.top = "0"
+      } else {
+        document.getElementById("nav").style.top = "-50px"
+      }
+      prevScroll = currentScroll
+    }
+  }
+
   return (
     <>
       <div
         id="nav"
         css={{ transition: "top 0.3s" }}
-        tw="fixed block flex justify-evenly left-0 shadow-md w-screen h-16 text-lg font-poppins font-medium z-10 bg-white "
+        tw="fixed block flex justify-evenly top-0 left-0 shadow-md w-screen h-16 text-lg font-poppins  z-10 bg-white "
       >
         <div tw="w-3/6 flex justify-center items-center ">
           <h1 tw="mr-28 cursor-default text-2xl flex items-center">
@@ -31,13 +38,23 @@ export const Navbar: React.FC = () => {
           </h1>
         </div>
         <div tw="w-5/12 flex justify-evenly items-center px-28 ">
-          <span tw="cursor-pointer hover:text-blue-500 flex items-center">
-            <RiFileSearchFill /> Explore
-          </span>
-          <span tw="cursor-pointer hover:text-blue-500 flex items-center">
-            <RiSave3Fill />
-            Saved
-          </span>
+          <Link href="/">
+            <span
+              style={color ? { color: "rgba(59, 130, 246)" } : {}}
+              tw="cursor-pointer hover:text-blue-500 flex items-center"
+            >
+              <RiFileSearchFill /> Explore
+            </span>
+          </Link>
+          <Link href="/Saved">
+            <span
+              style={color ? {} : { color: "rgba(59, 130, 246)" }}
+              tw="cursor-pointer hover:text-blue-500 flex items-center"
+            >
+              <RiSave3Fill />
+              Saved
+            </span>
+          </Link>
         </div>
       </div>
     </>

@@ -3,7 +3,8 @@ import tw from "twin.macro"
 import { Footer } from "../components/Footer"
 import { Memes } from "../components/Memes"
 import { Navbar } from "../components/Navbar"
-
+import { Search } from "../components/Search"
+import Explore  from "./Explore"
 
 export default function Home() {
   return (
@@ -17,10 +18,8 @@ export default function Home() {
         <title>Memepedia</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main tw="overflow-hidden">
-        <Navbar />
-          <Memes />
-        <Footer />
+      <main >
+        <Explore />
       </main>
     </div>
   )

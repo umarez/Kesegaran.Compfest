@@ -502,6 +502,19 @@ export type Uuid_Comparison_Exp = {
   _nin?: Maybe<Array<Scalars['uuid']>>;
 };
 
+export type SearchQueryVariables = Exact<{
+  search?: Maybe<Scalars['String']>;
+}>;
+
+
+export type SearchQuery = (
+  { __typename?: 'query_root' }
+  & { memes: Array<(
+    { __typename?: 'memes' }
+    & Pick<Memes, 'id' | 'description' | 'image_url' | 'title'>
+  )> }
+);
+
 export type MemesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -509,14 +522,53 @@ export type MemesQuery = (
   { __typename?: 'query_root' }
   & { memes: Array<(
     { __typename?: 'memes' }
-    & Pick<Memes, 'title' | 'image_url' | 'description'>
+    & Pick<Memes, 'id' | 'title' | 'image_url' | 'description'>
   )> }
 );
 
 
+export const SearchDocument = gql`
+    query Search($search: String) {
+  memes(
+    where: {_or: [{description: {_ilike: $search}}, {title: {_ilike: $search}}]}
+  ) {
+    id
+    description
+    image_url
+    title
+  }
+}
+    `;
+
+/**
+ * __useSearchQuery__
+ *
+ * To run a query within a React component, call `useSearchQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSearchQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSearchQuery({
+ *   variables: {
+ *      search: // value for 'search'
+ *   },
+ * });
+ */
+export function useSearchQuery(baseOptions?: Apollo.QueryHookOptions<SearchQuery, SearchQueryVariables>) {
+        return Apollo.useQuery<SearchQuery, SearchQueryVariables>(SearchDocument, baseOptions);
+      }
+export function useSearchLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SearchQuery, SearchQueryVariables>) {
+          return Apollo.useLazyQuery<SearchQuery, SearchQueryVariables>(SearchDocument, baseOptions);
+        }
+export type SearchQueryHookResult = ReturnType<typeof useSearchQuery>;
+export type SearchLazyQueryHookResult = ReturnType<typeof useSearchLazyQuery>;
+export type SearchQueryResult = Apollo.QueryResult<SearchQuery, SearchQueryVariables>;
 export const MemesDocument = gql`
     query Memes {
   memes {
+    id
     title
     image_url
     description

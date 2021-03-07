@@ -1,5 +1,15 @@
+query Search($search: String) {
+  memes(where: {_or: [{description: {_ilike: $search}}, {title: {_ilike: $search}}]}) {
+    id
+    description
+    image_url
+    title
+  }
+}
+
 query Memes {
   memes {
+    id
     title
     image_url
     description
