@@ -46,9 +46,10 @@ export const MemeRender: React.FC<props> = ({ Data }) => {
     <>
       <div tw="flex justify-center items-center flex-wrap w-4/5">
         <Masonry columnsCount={3} gutter="50px">
-          {memeData.map(meme => {
+          {memeData.map((meme, elemen) => {
             return (
               <div
+                key={elemen}
                 className="group"
                 tw="rounded-xl relative hover:bg-opacity-25"
                 css={{ height: "fit-content" }}

@@ -29,7 +29,7 @@ export const Footer: React.FC<props> = ({ absolute }) => {
             KESEGARAN.COMPFEST
           </h1>
         </div>
-        <div tw="mr-32 ml-20 flex items-center justify-evenly text-gray-600 ">
+        <div tw="mr-32 flex items-center justify-evenly text-gray-600 ">
           <IconContext.Provider value={{ size: "1.5rem" }}>
             <span tw="px-3 cursor-pointer hover:text-gray-800">
               <AiFillFacebook />

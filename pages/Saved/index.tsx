@@ -25,23 +25,16 @@ const Saved: React.FC = () => {
       })
     }
   }
+  ;
 
   return (
     <>
       {data !== undefined && (
         <div>
-          <head>
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link
-              href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
-              rel="stylesheet"
-            />
-          </head>
-
           <div tw="w-screen ">
             <Navbar color={false} />
-            <div tw="flex flex-col justify-center items-center mt-24">
-              <h1 tw="mb-20 text-3xl font-bold ">Your Saved memes.</h1>
+            <div tw="flex flex-col justify-center items-center mt-24 ">
+              <h1 tw="mb-20 text-3xl font-medium font-poppins ">Your Saved memes.</h1>
               {saved ? (
                 <div tw="bg-blue-50 w-2/3 h-52 flex flex-col justify-center items-center rounded">
                   <h1 tw="text-gray-400 m-2 ">
@@ -61,7 +54,7 @@ const Saved: React.FC = () => {
                 )
               )}
             </div>
-            <Footer absolute={dataFiltered == null?true:false} />
+            <Footer absolute={dataFiltered == null ? true : false} />
           </div>
         </div>
       )}

@@ -12,7 +12,6 @@ const Searched: React.FC = ()=>{
     const searchString = router.query.search
     let data = useSearchQuery({ variables: {search:`%${searchString}%`}})
     let object = data?.data  
-    console.log(object)
     return <div tw="overflow-x-hidden">
         {object!==undefined && <Memes searchData={object} />}
     </div>
