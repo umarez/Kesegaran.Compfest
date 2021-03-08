@@ -3,7 +3,7 @@ import { GlobalStyles } from "twin.macro"
 import { useApollo } from "../lib/apolloClient"
 import { ApolloProvider } from "@apollo/client"
 
-import "../styles/style.css"
+import "../styles/globals.css"
 
 const App = ({ Component, pageProps }: AppProps) => {
   const apolloClient = useApollo(pageProps.initialApolloState, pageProps.token)

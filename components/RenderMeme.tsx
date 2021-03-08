@@ -88,7 +88,6 @@ export const MemeRender: React.FC<props> = ({ Data }) => {
           })}
         </Masonry>
       </div>
-      )
     </>
   )
 }

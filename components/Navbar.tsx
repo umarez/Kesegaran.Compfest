@@ -13,10 +13,12 @@ export const Navbar: React.FC<props> = ({ color }) => {
     let prevScroll = window.pageYOffset
     window.onscroll = () => {
       let currentScroll = window.pageYOffset
-      if (prevScroll > currentScroll) {
-        document.getElementById("nav").style.top = "0"
-      } else {
-        document.getElementById("nav").style.top = "-50px"
+      if (document.getElementById("nav") !== null) {
+        if (prevScroll > currentScroll) {
+          document.getElementById("nav").style.top = "0"
+        } else {
+          document.getElementById("nav").style.top = "-50px"
+        }
       }
       prevScroll = currentScroll
     }

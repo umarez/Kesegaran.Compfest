@@ -26,19 +26,17 @@ export const Memes: React.FC<MemesProps> = ({ searchData }) => {
   })
 
 
-  return (
-    <>
+  return <>
       <Navbar color={true} />
       <div tw="w-screen flex justify-center items-center flex-col z-10 mt-28 mb-36 md:px-10 py-5">
         <div tw="mb-10">
           <Search />
         </div>
-        {memeData.length != 0 && <MemeRender Data={memeData} />}
+        {memeData.length !== 0 ? <MemeRender Data={memeData} />:<h1 tw="text-gray-600 text-2xl">No Results :(</h1>}
       </div>
-      <Footer />
+      <Footer absolute={memeData.length!==0?false:true} />
     </>
-  )
+  
 }
 
-{
-}
+

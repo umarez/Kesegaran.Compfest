@@ -10,15 +10,24 @@ import {
 import { RiLineFill } from "react-icons/ri"
 import { IconContext } from "react-icons"
 
-export const Footer: React.FC = () => {
+interface props {
+  absolute?: boolean
+}
+
+export const Footer: React.FC<props> = ({ absolute }) => {
   return (
     <>
-      <div tw="flex justify-evenly items-center left-0 bottom-0 w-full bg-gray-100 h-24 z-10 ">
+      <div
+        style={absolute ? { position: "absolute" } : {}}
+        tw="flex justify-evenly items-center left-0 bottom-0 w-full bg-gray-100 h-24 z-10 "
+      >
         <div tw="flex items-center">
           <span tw="mr-2 text-gray-500">
             <FaBeer size={20} />
           </span>
-          <h1 tw="cursor-default text-lg mt-1 font-bold text-gray-500">KESEGARAN.COMPFEST</h1>
+          <h1 tw="cursor-default text-lg mt-1 font-bold text-gray-500">
+            KESEGARAN.COMPFEST
+          </h1>
         </div>
         <div tw="mr-32 ml-20 flex items-center justify-evenly text-gray-600 ">
           <IconContext.Provider value={{ size: "1.5rem" }}>

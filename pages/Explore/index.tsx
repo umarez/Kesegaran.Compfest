@@ -11,7 +11,7 @@ const Explore: React.FC = () => {
       <div tw="w-full h-screen flex flex-col justify-center items-center">
         <Search />
       </div>
-      <Footer />
+      <Footer absolute={true} />
     </div>
   )
 }

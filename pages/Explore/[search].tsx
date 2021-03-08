@@ -15,7 +15,6 @@ const Searched: React.FC = ()=>{
     console.log(object)
     return <div tw="overflow-x-hidden">
         {object!==undefined && <Memes searchData={object} />}
-        
     </div>
 }
 

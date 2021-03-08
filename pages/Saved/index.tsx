@@ -11,7 +11,7 @@ const Saved: React.FC = () => {
   const { data, loading: loading } = useMemesQuery()
   let saved = null
   let ids = []
-  let apakek = null
+  let dataFiltered = null
   if (typeof window !== "undefined") {
     saved = localStorage.getItem("id") == null
     if (!saved) {
@@ -20,7 +20,7 @@ const Saved: React.FC = () => {
   }
   if (data !== undefined) {
     if (ids.length > 0) {
-      apakek = data.memes.filter(e => {
+      dataFiltered = data.memes.filter(e => {
         return ids.includes(e.id.toString())
       })
     }
@@ -38,7 +38,7 @@ const Saved: React.FC = () => {
             />
           </head>
 
-          <div tw="w-full h-screen ">
+          <div tw="w-screen ">
             <Navbar color={false} />
             <div tw="flex flex-col justify-center items-center mt-24">
               <h1 tw="mb-20 text-3xl font-bold ">Your Saved memes.</h1>
@@ -54,14 +54,14 @@ const Saved: React.FC = () => {
                   </Link>
                 </div>
               ) : (
-                apakek !== null && (
+                dataFiltered !== null && (
                   <div tw="w-full flex justify-center mb-10">
-                    <MemeRender Data={apakek} />
+                    <MemeRender Data={dataFiltered} />
                   </div>
                 )
               )}
             </div>
-            <Footer />
+            <Footer absolute={dataFiltered == null?true:false} />
           </div>
         </div>
       )}
