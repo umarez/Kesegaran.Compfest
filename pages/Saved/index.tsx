@@ -25,16 +25,16 @@ const Saved: React.FC = () => {
       })
     }
   }
-  ;
-
   return (
     <>
       {data !== undefined && (
         <div>
-          <div tw="w-screen ">
+          <div tw="w-screen h-screen ">
             <Navbar color={false} />
             <div tw="flex flex-col justify-center items-center mt-24 ">
-              <h1 tw="mb-20 text-3xl font-medium font-poppins ">Your Saved memes.</h1>
+              <h1 tw="mb-20 text-3xl font-medium font-poppins ">
+                Your Saved memes.
+              </h1>
               {saved ? (
                 <div tw="bg-blue-50 w-2/3 h-52 flex flex-col justify-center items-center rounded">
                   <h1 tw="text-gray-400 m-2 ">
@@ -54,8 +54,8 @@ const Saved: React.FC = () => {
                 )
               )}
             </div>
-            <Footer absolute={dataFiltered == null ? true : false} />
           </div>
+          <Footer />
         </div>
       )}
     </>
